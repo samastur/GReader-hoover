@@ -1,0 +1,4 @@
+settings.py
+reader_backup*
+.*.swp
+*.pyc
