@@ -1,0 +1,13 @@
+USERNAME = ''
+PASSWORD = ''
+
+SAVE_TAGS = True
+SAVE_CATEGORIES = True
+SAVE_FEEDS = False
+# Save all special feeds (created, read, broadcast-friends, reading-list,
+# kept-unread, broadcast, starred) or only starred
+SAVE_SPECIAL_FEEDS_ALL = False
+
+# Full path to backup directory. Gets created if it doesn't exist yet. Defaults
+# to './reader_backup'
+#BACKUP_DIRECTORY = ''

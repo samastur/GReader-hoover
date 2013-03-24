@@ -21,7 +21,7 @@ def toJSON(obj):
     return json.dumps(obj, sort_keys=True, indent=2)
 
 
-class ReaderBackup(object):
+class HooverReader(object):
     '''
     Export everything that was saved in Google Reader as JSON objects. Keep
     as much information as possible, but especially ID (useful for
@@ -109,6 +109,7 @@ class ReaderBackup(object):
             'feed_id': feed.id,
             'title': feed.title,
             'site_url': getattr(feed, "siteUrl", ""),
+            'feed_url': getattr(feed, "feedUrl", ""),
             'last_updated': feed.lastUpdated,  # Unix timestamp; updated when feed is fetched
         }
         return feed_obj
@@ -132,7 +133,6 @@ class ReaderBackup(object):
 
     def save_feed(self, feed, subdir=None):
         items = []
-        feed_obj = self.get_feed_info(feed)
 
         print 'Saving:', feed.title.encode('utf-8')
         try:
@@ -143,6 +143,7 @@ class ReaderBackup(object):
             return
         for item in raw_items:
             items.append(self.process_item(item))
+        feed_obj = self.get_feed_info(feed)
         feed_obj['items'] = items
         feed_obj['items_count'] = len(items)
         self.save_to_file(self.__create_feed_filename(feed.title), feed_obj, subdir)
@@ -177,6 +178,19 @@ class ReaderBackup(object):
         else:
             print 'There are no categories to save.'
 
+    def save_feed_list(self):
+        feeds = {
+            'title': 'Google Reader List of Feeds'
+        }
+        feeds_list = []
+        for feed in self.feeds:
+            feeds_list.append(self.get_feed_info(feed))
+        feeds['feeds'] = feeds_list
+        if len(feeds['feeds']):
+            self.save_to_file("feeds.json", feeds)
+        else:
+            print 'There are no feeds to save.'
+
     def backup(self):
         if getattr(settings, 'SAVE_TAGS', True):
             print "Saving tags..."
@@ -206,12 +220,13 @@ class ReaderBackup(object):
             self.save_feed(feed, 'special')
 
         if getattr(settings, 'SAVE_CATEGORIES', True):
-            print "Saving categories..."
+            print "Saving list of feeds and categories..."
+            self.save_feed_list()
             self.save_categories()
 
 
 if __name__ == '__main__':
     username = getattr(settings, 'USERNAME', sys.argv[0])
     password = getattr(settings, 'PASSWORD', sys.argv[0])
-    rb = ReaderBackup(username, password)
-    rb.backup()
+    hoover = HooverReader(username, password)
+    hoover.backup()
