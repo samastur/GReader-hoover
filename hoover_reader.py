@@ -226,7 +226,7 @@ class HooverReader(object):
 
 
 if __name__ == '__main__':
-    username = getattr(settings, 'USERNAME', sys.argv[0])
-    password = getattr(settings, 'PASSWORD', sys.argv[0])
+    username = getattr(settings, 'USERNAME', sys.argv[1])
+    password = getattr(settings, 'PASSWORD', sys.argv[2])
     hoover = HooverReader(username, password)
     hoover.backup()
