@@ -73,7 +73,7 @@ class HooverReader(object):
         self.specialFeeds = self.reader.specialFeeds.copy()
 
     def __create_feed_filename(self, feed_label):
-        return "{0}.json".format(slugify(feed_label.encode('utf-8')))
+        return "{0}.json".format(slugify(feed_label))
 
     def get_tags(self):
         tags_json = self.reader.httpGet(
