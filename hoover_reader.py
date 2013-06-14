@@ -12,6 +12,12 @@ try:
 except ImportError:
     settings = object()
 
+import re
+import unidecode
+
+def slugify(str):
+    str = unidecode.unidecode(str).lower()
+    return re.sub(r'\W+','-',str)
 
 BACKUP_DIR = getattr(settings, 'BACKUP_DIRECTORY', 'reader_backup')
 PAUSE_INTERVAL = 60
@@ -67,7 +73,7 @@ class HooverReader(object):
         self.specialFeeds = self.reader.specialFeeds.copy()
 
     def __create_feed_filename(self, feed_label):
-        return "{0}.json".format(feed_label)
+        return "{0}.json".format(slugify(feed_label))
 
     def get_tags(self):
         tags_json = self.reader.httpGet(
@@ -226,7 +232,7 @@ class HooverReader(object):
 
 
 if __name__ == '__main__':
-    username = getattr(settings, 'USERNAME', sys.argv[0])
-    password = getattr(settings, 'PASSWORD', sys.argv[0])
+    username = getattr(settings, 'USERNAME', sys.argv[1])
+    password = getattr(settings, 'PASSWORD', sys.argv[2])
     hoover = HooverReader(username, password)
     hoover.backup()

@@ -1,1 +1,2 @@
 libgreader==0.6.3
+unidecode
