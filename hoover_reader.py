@@ -232,7 +232,14 @@ class HooverReader(object):
 
 
 if __name__ == '__main__':
-    username = getattr(settings, 'USERNAME', sys.argv[1])
-    password = getattr(settings, 'PASSWORD', sys.argv[2])
-    hoover = HooverReader(username, password)
-    hoover.backup()
+    if len(sys.argv) == 3:
+        username = sys.argv[1]
+        password = sys.argv[2]
+    else:
+        username = getattr(settings, 'USERNAME')
+        password = getattr(settings, 'PASSWORD')
+    if username and password:
+        hoover = HooverReader(username, password)
+        hoover.backup()
+    else:
+        print 'Username and password missing. Add them to settings.py or provide them as arguments to the script.'
