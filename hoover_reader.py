@@ -152,7 +152,7 @@ class HooverReader(object):
         feed_obj = self.get_feed_info(feed)
         feed_obj['items'] = items
         feed_obj['items_count'] = len(items)
-        self.save_to_file(self.__create_feed_filename(feed.title), feed_obj, subdir)
+        self.save_to_file(self.__create_feed_filename(unicode(feed.title)), feed_obj, subdir)
 
     def process_category(self, category):
         cat = {
@@ -171,7 +171,7 @@ class HooverReader(object):
         cat['items'] = [self.process_item(item) for item in
                         self.load_items(tag)]
         cat['items_count'] = len(cat['items'])
-        self.save_to_file(self.__create_feed_filename(cat['title']), cat, 'tags')
+        self.save_to_file(self.__create_feed_filename(unicode(cat['title'])), cat, 'tags')
 
     def save_categories(self):
         categories = {
