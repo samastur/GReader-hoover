@@ -102,7 +102,7 @@ and web sites). You can delete it once you are done with backup.
 TODO
 ====
 - export to web pages (HTML)
-- import script for Tiny Tiny RSS
+- import script for `Tiny Tiny RSS <http://tt-rss.org/>`_
 - replace feedburner links with real addresses (to be safe when that service
   also gets cancelled)
 - I would like to learn how to export Notes (you already can using tools
