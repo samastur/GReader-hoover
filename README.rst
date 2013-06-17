@@ -27,8 +27,8 @@ Installation (others)
 
 First some bad news. Successful export will probably not be directly useful or
 usable to you. The good news is that your friendly neighbourhood programmer
-should not have problems transforming into any shape you like. I also plan to
-write one myself when I finally have some time again. Hopefully soon.
+should not have problems transforming it into any shape you like. I also
+plan to write one myself when I finally have some time again. Hopefully soon.
 
 I have packed my script and uploaded it to http://markos.gaivo.net/greader.zip 
 It works on my machine, hopefully yours too.
