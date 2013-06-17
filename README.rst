@@ -54,9 +54,8 @@ To use it, do following:
     BACKUP_DIRECTORY = "where_to_save_data"
 
 your_username and your_password are username and password you use to connect
-Google Reader. Maybe the easiest way to do it is to rename settings.py.template
-in greader directory and open it with IDLE (which is installed together with
-Python).
+Google Reader. Maybe the easiest way to do it is to open settings.py.template
+in greader directory with Notepad and save configured version as settings.py.
 
 ``BACKUP_DIRECTORY`` should list path to where you want to save your data.
 Directory will be created if it does not exist yet, but it should conform to
@@ -68,8 +67,9 @@ and followed with backslash-delimited path).
 
 *Note*: I tried my best, but I can't guarantee this script gets all of data
 you stored. So to be on the safe side try also other approaches:
-- `Amir's solution <http://markos.gaivo.net/blog/?p=1097#comment-312201>`
-- `Knarf's solution <http://productforums.google.com/forum/#!msg/reader/BO3H81Nb68M/NLNwY2tJ1PMJ>`
+
+- .. _Amir's solution: http://markos.gaivo.net/blog/?p=1097#comment-312201
+- .. _Knarf's solution: http://productforums.google.com/forum/#!msg/reader/BO3H81Nb68M/NLNwY2tJ1PMJ
 
 Better to have a backup too many than one too few.
 
