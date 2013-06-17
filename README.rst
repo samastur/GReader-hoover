@@ -68,8 +68,8 @@ and followed with backslash-delimited path).
 *Note*: I tried my best, but I can't guarantee this script gets all of data
 you stored. So to be on the safe side try also other approaches:
 
-- .. _Amir's solution: http://markos.gaivo.net/blog/?p=1097#comment-312201
-- .. _Knarf's solution: http://productforums.google.com/forum/#!msg/reader/BO3H81Nb68M/NLNwY2tJ1PMJ
+- `Amir's solution <http://markos.gaivo.net/blog/?p=1097#comment-312201>`_
+- `Knarf's solution <http://productforums.google.com/forum/#!msg/reader/BO3H81Nb68M/NLNwY2tJ1PMJ>`_
 
 Better to have a backup too many than one too few.
 
