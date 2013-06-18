@@ -9,6 +9,9 @@ I did not spend time polishing script that will not be useful for long
 (and don't intend to do so), but please do let me know if there is
 anything else you would like to see exported that isn't yet.
 
+Script **does not backup** data which can be exported from Google Reader
+itself! Do not rely just on this script to get everything you care about.
+
 Installation & usage
 ====================
 
@@ -97,6 +100,10 @@ Also, if you are using 2-step verification (which you should), then you
 need to create a special password on your Google account page (found in
 security part of your account where you manage access from applications
 and web sites). You can delete it once you are done with backup.
+
+And remember, this script **does not backup** data which can be exported
+from Google Reader itself! Do not rely just on this script to get
+everything you care about.
 
 
 TODO
